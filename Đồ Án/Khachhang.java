@@ -3,69 +3,58 @@ import java.util.Scanner;
 
 public class Khachhang {
 	private String makh;
-	private String ho;
-	private String ten;
+	private String hokh;
+	private String tenkh;
 	private String diachi;
 	private int sdt;
 
 	public Khachhang() {
 	}
 
-	public Khachhang(String makh, String ho, String ten, String diachi, int sdt) {
-		this.makh = makh;
-		this.ho = ho;
-		this.ten = ten;
+	public Khachhang(String makh, String hokh, String tenkh, String diachi, int sdt) {
+		this.setMakh(makh);
+		this.hokh = hokh;
+		this.tenkh = tenkh;
 		this.diachi = diachi;
-		this.sdt = sdt;
+		this.setSdt(sdt);
 	}
 
-	public void Nhap() {
+	public void nhap() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Nhập mã khách hàng: ");
-		makh = sc.next();
+		setMakh(sc.next());
 		System.out.print("Nhập họ khách hàng: ");
-		ho = sc.next();
+		hokh = sc.next();
 		System.out.print("Nhập tên khách hàng: ");
-		ten = sc.next();
+		tenkh = sc.next();
 		System.out.print("Nhập địa chỉ khách hàng: ");
 		diachi = sc.next();
 		System.out.print("Nhập số điện thoại khách hàng: ");
-		sdt = sc.nextInt();
+		setSdt(sc.nextInt());
 	}
 
-	public void Xuat() {
+	public void xuat() {
 		System.out.println(
-				"Khách hàng có mã " + makh + " tên " + ho + " " + ten + " địa chỉ " + diachi + " số điện thoại " + sdt);
-	}
-
-	public String getMaKh() {
-		return makh;
-	}
-
-	public void setMaKh(String makh) {
-		this.makh = makh;
+				"Khách hàng có mã " + makh + " tên " + hokh + " " + tenkh + " địa chỉ " + diachi + " số điện thoại " + sdt);
 	}
 
 	public String getHo() {
-		return ho;
+		return hokh;
 	}
-
-	public void setHo(String ho) {
-		this.ho = ho;
+	public void setHo(String hokh) {
+		this.hokh = hokh;
 	}
 
 	public String getTen() {
-		return ten;
+		return tenkh;
 	}
-
-	public void setTen(String ten) {
-		this.ten = ten;
+	void setTen(String tenkh) {
+		this.tenkh = tenkh;
 	}
 
 	public String getDiaChi() {
 		return diachi;
 	}
-
 	public void setDiaChi(String diachi) {
 		this.diachi = diachi;
 	}
@@ -73,8 +62,16 @@ public class Khachhang {
 	public Integer getSdt() {
 		return sdt;
 	}
-
-	public void setSdt(Integer sdt) {
+	void setSdt(int sdt) {
 		this.sdt = sdt;
 	}
+
+	public String getMakh() {
+		return makh;
+	}
+	public void setMakh(String makh) {
+		this.makh = makh;
+	}
+
+
 }
