@@ -1,10 +1,44 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Arrays;
 
 public class Dschitietphieunhaphang {
     int n;
     chitietphieunhaphang[] ds;
     Scanner sc = new Scanner(System.in);
+
+    public void docFile(String filename) throws Exception {
+        try (BufferedReader br = new BufferedReader(new FileReader("Dschitietphieunhaphang.txt"))) {
+            n = Integer.parseInt(br.readLine());
+            ds = new chitietphieunhaphang[n];
+            for (int i = 0; i < n; i++) {
+                String line = br.readLine();
+                if (line == null)
+                    break;
+                String[] parts = line.split(",");
+                ds[i] = new chitietphieunhaphang(parts[0], parts[1], Integer.parseInt(parts[2]),
+                        Double.parseDouble(parts[3]));
+            }
+        }
+    }
+
+    public void ghiFile(String filename) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            bw.write(n + "");
+            bw.newLine();
+            for (int i = 0; i < n; i++) {
+                if (ds[i] != null) {
+                    bw.write(ds[i].getMaPNH() + "," + ds[i].getMaHang() + "," + ds[i].getSoLuong() + ","
+                            + ds[i].getDonGia());
+                    bw.newLine();
+                }
+            }
+        }
+        System.out.println("Da ghi du lieu vao file thanh cong!");
+    }
 
     public void xuat() {
         for (int i = 0; i < n; i++) {
