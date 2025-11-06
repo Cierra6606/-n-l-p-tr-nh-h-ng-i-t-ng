@@ -34,5 +34,6 @@ public abstract class QLBH {
             System.out.println("Lỗi đọc file: " + e.getMessage());
         }
     }
+    // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }
