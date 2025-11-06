@@ -3,41 +3,6 @@ import java.util.Scanner;
 public abstract class QLBH {
     protected Scanner sc = new Scanner(System.in);
 
-    // Các phương thức chung
-    protected String nhap(String msg) {
-        System.out.print(msg + ": ");
-        return sc.nextLine().trim();
-    }
-
-    protected int nhapSo(String msg) {
-        while (true) {
-            System.out.print(msg + ": ");
-            try {
-                int n = Integer.parseInt(sc.nextLine().trim());
-                if (n >= 0)
-                    return n;
-                System.out.println("Nhap so khong am!");
-            } catch (Exception e) {
-                System.out.println("Nhap so nguyen!");
-            }
-        }
-    }
-
-    protected double nhapSoThuc(String msg) {
-        while (true) {
-            System.out.print(msg + ": ");
-            try {
-                double n = Double.parseDouble(sc.nextLine().trim());
-                if (n >= 0)
-                    return n;
-                System.out.println("Nhap so khong am!");
-            } catch (Exception e) {
-                System.out.println("Nhap so thuc!");
-            }
-        }
-    }
-
-    // Các phương thức abstract
     public abstract void them();
 
     public abstract void sua();
@@ -55,10 +20,4 @@ public abstract class QLBH {
     public abstract void ghiFile();
 
     public abstract void menu();
-
-    // Phương thức chung
-    protected boolean xacNhan(String msg) {
-        System.out.print(msg + " (y/n): ");
-        return sc.nextLine().trim().equalsIgnoreCase("y");
-    }
 }
