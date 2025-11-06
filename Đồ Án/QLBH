@@ -54,6 +54,8 @@ public abstract class QLBH {
 
     public abstract void ghiFile();
 
+    public abstract void menu();
+
     // Phương thức chung
     protected boolean xacNhan(String msg) {
         System.out.print(msg + " (y/n): ");
