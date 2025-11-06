@@ -1,7 +1,20 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public abstract class QLBH {
     protected Scanner sc = new Scanner(System.in);
+    // Các thuộc tính danh sách
+    protected Nhanvien[] Dsnhanvien;
+    protected Khachhang[] Dskhachhang;
+    protected Hoadon[] Dshoadon;
+    protected Phieunhaphang[] Dsphieunhaphang;
+    protected Dodunghoctap[] Dsdodunghoctap;
+    protected Loaihang[] Dsloaihang;
+    protected Hangsanxuat[] Dshangsanxuat;
+    protected Chitiethoadon[] Dschitiethoadon;
+    protected Chitietphieunhap[] Dschitietphieunhap;
+    protected Nhacungcap[] Dsnhacungcap;
 
     public abstract void them();
 
@@ -20,4 +33,32 @@ public abstract class QLBH {
     public abstract void ghiFile();
 
     public abstract void menu();
+
+    public void docTatCaFile() {
+        String[] files = {
+                "Dschitietphieunhaphang.txt",
+                "dschitietphieunhaphang.txt",
+                "dodunghoctap.txt"
+        };
+
+        for (String filename : files) {
+            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                n = Integer.parseInt(br.readLine().trim());
+                ds = new chitietphieunhaphang[n];
+                for (int i = 0; i < n; i++) {
+                    String line = br.readLine();
+                    if (line == null)
+                        break;
+                    String[] parts = line.split(",");
+                    ds[i] = new chitietphieunhaphang(
+                            parts[0],
+                            parts[1],
+                            Integer.parseInt(parts[2].trim()),
+                            Double.parseDouble(parts[3].trim()));
+                }
+            } catch (Exception e) {
+                System.out.println("Lỗi đọc file " + filename + ": " + e.getMessage());
+            }
+        }
+    }
 }
