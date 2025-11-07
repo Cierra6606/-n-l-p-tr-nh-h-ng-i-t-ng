@@ -3,9 +3,12 @@ package DOAN;
 import java.io.*;
 import java.util.*;
 
+import javax.xml.validation.Schema;
+
 public class Dshangsanxuat {
-    int sohsx = 0;
+    int sohsx;
     hangsanxuat[] dshsx = new hangsanxuat[0];
+    Scanner sc = new Scanner(System.in);
 
     // Hàm setter
     public void setDanhsach(hangsanxuat[] dshsx, int sohsx){
@@ -69,6 +72,44 @@ public class Dshangsanxuat {
             }
             else{
                 System.out.println("===== Khong tim thay hang san xuat co ten " + tenhsx + " =====");
+            }
+        }
+    }
+
+    // Hàm sửa hãng sản xuất
+    public void suaHSX(String mahsx) {
+        for (int i = 0; i < sohsx; i++) {
+            if (dshsx[i].getMahsx().equals(mahsx)){
+                int k;
+                do {
+                    System.out.println("\n----- Sua thong tin hang san xuat -----");
+                    System.out.println("1. Sua ma hang san xuat.");
+                    System.out.println("2. Sua ten hang san xuat.");
+                    System.out.println("3. Sua dia chi hang san xuat.");
+
+                    k = sc.nextInt();
+                    sc.nextLine();
+
+                    switch (k) {
+                        case 1:
+                            System.out.println("Nhap ma moi: ");
+                            dshsx[i].setMahsx(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.println("Nhap ten moi: ");
+                            dshsx[i].setTenhsx(sc.nextLine());
+                            break;
+                        case 3:
+                            System.out.println("Nhap dia chi moi: ");
+                            dshsx[i].setDiachi(sc.nextLine());
+                            break;
+                        
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                            break;
+                    }
+                }   while (k != 0); 
+                return;
             }
         }
     }

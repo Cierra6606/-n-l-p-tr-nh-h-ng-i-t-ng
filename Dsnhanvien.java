@@ -3,7 +3,7 @@ package DOAN;
 import java.util.*;
 import java.io.*;
 class Dsnhanvien{
-    private int soNV = 0;
+    private int soNV;
     private nhanvien[] dsNV = new nhanvien[0];
     private static final Scanner sc = new Scanner(System.in);
 
@@ -88,15 +88,44 @@ class Dsnhanvien{
         }
     }
 
-    // Hàm sửa nhân viên theo mã
+    // Hàm sửa nhân viên
     public void suaNV(String manv){
         for(int i = 0; i < soNV; i++) {
             if (dsNV[i].getManv().equals(manv)) {
-                System.out.println("===== Nhap thong tin moi cho nhan vien: =====");
-                dsNV[i].nhap();
-                System.out.println("===== Da sua thong tin nhan vien co ma " + manv + " =====");
-            } else {
-                System.out.println("===== Khong tim thay nhan vien co ma " + manv + " =====");
+                int k;
+                do {
+                    System.out.println("\n----- Sua thong tin nhan vien -----");
+                    System.out.println("1. Sua ma nhan vien");
+                    System.out.println("2. Sua ho nhan vien");
+                    System.out.println("3. Sua ten nhan vien");
+                    System.out.println("4. Sua luong nhan vien");
+                    k = sc.nextInt();
+                    sc.nextLine();
+
+                    switch (k) {
+                        case 1:
+                            System.out.println("Nhap ma moi: ");
+                            dsNV[i].setManv(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.println("Nhap ho moi: ");
+                            dsNV[i].setHonv(sc.nextLine());
+                            break;
+                        case 3:
+                            System.out.println("Nhap ten moi: ");
+                            dsNV[i].setHonv(sc.nextLine());
+                            break;
+                        case 4:
+                            System.out.println("Nhap luong moi: ");
+                            dsNV[i].setLuong(sc.nextInt());
+                            break;
+
+                    default:
+                        System.out.println("Lua chon khong hop le!");
+                        break;
+                    }
+                } while (k != 0);
+                    return;
             }
         }
     }

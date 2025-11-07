@@ -3,8 +3,9 @@ package DOAN;
 import java.util.*;
 import java.io.*;
 public class Dsloaihang {
-    int solh = 0;
+    int solh;
     loaihang[] dslh = new loaihang[0];
+    Scanner sc = new Scanner(System.in);
 
     // Hàm setter
     public void setDanhsach(loaihang[] dslh, int solh){
@@ -71,15 +72,39 @@ public class Dsloaihang {
         }
     }
 
-    // Hàm sửa loại hàng theo mã
+    // Hàm sửa loại hàng
     public void suaLH(String malh){
         for(int i = 0; i < solh; i++) {
             if (dslh[i].getMalh().equals(malh)) {
-                System.out.println("===== Nhap thong tin moi cho nhan vien: =====");
-                dslh[i].nhap();
-                System.out.println("===== Da sua thong tin nhan vien co ma " + malh + " =====");
-            } else {
-                System.out.println("===== Khong tim thay nhan vien co ma " + malh + " =====");
+                int k;
+                do {
+                    System.out.println("\n----- Sua thong tin loai hang ");
+                    System.out.println("1. Sua ma loai hang.");
+                    System.out.println("2. Sua ten loai hang.");
+                    System.out.println("3. Sua mo ta loai hang.");
+                    k = sc.nextInt();
+                    sc.nextLine();
+
+                    switch (k) {
+                        case 1:
+                            System.out.println("Nhap ma moi: ");
+                            dslh[i].setMalh(sc.nextLine());
+                            break;
+                        case 2:
+                            System.out.println("Nhap ten moi: ");
+                            dslh[i].setMalh(sc.nextLine());
+                            break;
+                        case 3:
+                            System.out.println("Nhap mo ta moi: ");
+                            dslh[i].setMota(sc.nextLine());
+                            break;
+                        
+                        default:
+                            System.out.println("Lua chon khong hop le!");
+                            break;
+                    }
+                }   while (k != 0); 
+                return;
             }
         }
     }
