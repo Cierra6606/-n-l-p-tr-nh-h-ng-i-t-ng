@@ -1,4 +1,3 @@
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -26,35 +25,28 @@ public class Khachhang {
 	}
 
 	public void nhap() {
-		try (Scanner sc = new Scanner(System.in)) {
-			System.out.print("Nhập số lượng khách hàng cần ghi: ");
-			int n = sc.nextInt();
-
-			for (int i = 0; i < n; i++) {
-				System.out.println("== Nhập khách hàng thứ " + (i + 1) + " ==");
-			
-			System.out.print("Nhập mã khách hàng: ");
-			makh = sc.next();
-			System.out.print("Nhập họ khách hàng: ");
-			hokh = sc.next();
-			System.out.print("Nhập tên khách hàng: ");
-			tenkh = sc.next();
-			System.out.print("Nhập địa chỉ khách hàng: ");
-			diachi = sc.next();
-			System.out.print("Nhập số điện thoại khách hàng: ");
-			sdt =sc.nextInt();
-			}
-		}
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhap ma khach hang: ");
+		makh = sc.nextLine();
+		System.out.print("Nhap ho khach hang: ");
+		hokh = sc.nextLine();
+		System.out.print("Nhap ten khach hang: ");
+		tenkh = sc.nextLine();
+		System.out.print("Nhap dia chi khach hang: ");
+		diachi = sc.nextLine();
+		System.out.print("Nhap so dien thoai khach hang: ");
+		sdt = sc.nextInt();
 	}
 
 	public void xuat() {
-		System.out.println(
-				"Khách hàng có mã " + makh + " tên " + hokh + " " + tenkh + " địa chỉ " + diachi + " số điện thoại " + sdt);
+		System.out.println("Khach hang co ma " + makh + " ten " + hokh + " " + tenkh + " dia chi " + diachi
+				+ " so dien thoai " + sdt);
 	}
 
 	public String getHo() {
 		return hokh;
 	}
+
 	public void setHo(String hokh) {
 		this.hokh = hokh;
 	}
@@ -62,13 +54,15 @@ public class Khachhang {
 	public String getTen() {
 		return tenkh;
 	}
-	void setTen(String tenkh) {
+
+	public void setTen(String tenkh) {
 		this.tenkh = tenkh;
 	}
 
 	public String getDiaChi() {
 		return diachi;
 	}
+
 	public void setDiaChi(String diachi) {
 		this.diachi = diachi;
 	}
@@ -76,13 +70,15 @@ public class Khachhang {
 	public Integer getSdt() {
 		return sdt;
 	}
-	void setSdt(int sdt) {
+
+	public void setSdt(int sdt) {
 		this.sdt = sdt;
 	}
 
 	public String getMakh() {
 		return makh;
 	}
+
 	public void setMakh(String makh) {
 		this.makh = makh;
 	}

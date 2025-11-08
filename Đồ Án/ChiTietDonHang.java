@@ -1,35 +1,83 @@
+import java.util.Scanner;
 
+public class ChiTietDonHang {
+    private String mahd;
+    private String msp;
+    private int sl;
+    private double dongia;
+    private double tongtien;
 
-public class ChiTietDonHang{
-	Hoadon mahd;
-	Hoadon tongtien;
-	Dodunghoctap MSP;
-	Dodunghoctap SL;
-	Dodunghoctap DonGia;
-	
-	
-	public ChiTietDonHang(Dodunghoctap MSP,Dodunghoctap SL,Dodunghoctap DonGia, Hoadon mahd, Hoadon tongtien) {
-		this.MSP = MSP; 
-		this.SL = SL;
-		this.DonGia = DonGia;
-		this.mahd = mahd;
-		this.tongtien = tongtien;
-	}
-	
-	public void xuat() {
-		System.out.println("--Chi tiết đơn hàng--");
-		System.out.println("Mã sản phẩm: " +MSP.getMSP());
-		System.out.println("Mã hóa đơn: " +mahd.getMahd());
-		System.out.println("Số lượng: " +SL.getSL());
-		System.out.println("Đơn giá: " +DonGia.getDonGia());
-		System.out.println("Tổng tiền: " +tongtien.getTongtien());
-	}
-	public static void main(String[] args) {
-        Butviet sp = new Butviet("SP001", "Bút bi Thiên Long", 10, 5000, "cây", 10, "bút bi");
-        Khachhang kh = new Khachhang("KH01", "Nguyen", "An","123", 987654321);
-        Nhanvien nv = new Nhanvien("NV01", "Tran", "Binh", 5000000);
-        Hoadon hd = new Hoadon("HD001", "20/10/2025", 50000, kh, nv);
-        ChiTietDonHang ctdh = new ChiTietDonHang(sp, sp, sp, hd, hd);
-        ctdh.xuat();
+    Scanner sc = new Scanner(System.in);
+
+    public ChiTietDonHang() {
     }
+
+    public ChiTietDonHang(String mahd, String msp, int sl, double dongia) {
+        this.mahd = mahd;
+        this.msp = msp;
+        this.sl = sl;
+        this.dongia = dongia;
+        this.tongtien = sl * dongia;
+    }
+
+    public void nhap() {
+        System.out.print("Nhập mã hóa đơn: ");
+        mahd = sc.nextLine();
+
+        System.out.print("Nhập mã sản phẩm: ");
+        msp = sc.nextLine();
+
+        System.out.print("Nhập số lượng: ");
+        sl = sc.nextInt();
+
+        System.out.print("Nhập đơn giá: ");
+        dongia = sc.nextDouble();
+        sc.nextLine();
+
+        tongtien = sl * dongia;
+    }
+
+    public void xuat() {
+        System.out.println("Mã hóa đơn: " + mahd + " Có chi tiết là: " + "mã sản phẩm" + msp + "số lượng" + sl
+                + "đơn giá" + dongia + "tổng tiền" + tongtien);
+    }
+
+    public String getMahd() {
+        return mahd;
+    }
+
+    public void setMahd(String mahd) {
+        this.mahd = mahd;
+    }
+
+    public String getMsp() {
+        return msp;
+    }
+
+    public void setMsp(String msp) {
+        this.msp = msp;
+    }
+
+    public int getSl() {
+        return sl;
+    }
+
+    public void setSl(int sl) {
+        this.sl = sl;
+        this.tongtien = sl * this.dongia;
+    }
+
+    public double getDongia() {
+        return dongia;
+    }
+
+    public void setDongia(double dongia) {
+        this.dongia = dongia;
+        this.tongtien = this.sl * dongia;
+    }
+
+    public double getTongtien() {
+        return tongtien;
+    }
+
 }

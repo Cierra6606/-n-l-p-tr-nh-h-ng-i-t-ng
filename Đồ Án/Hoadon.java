@@ -1,13 +1,14 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 public class Hoadon {
     String mahd;
-    String ngayxuathd;
+    LocalDate ngayxuathd;
     double tongtien;
     private Khachhang makh;
     private Nhanvien manv;
 
     // Ham thiet lap co tham so
-    public Hoadon(String mahd, String ngayxuathd, double tongtien, Khachhang makh, Nhanvien manv) {
+    public Hoadon(String mahd, LocalDate ngayxuathd, double tongtien, Khachhang makh, Nhanvien manv) {
         this.mahd = mahd;
         this.ngayxuathd = ngayxuathd;
         this.tongtien = tongtien;
@@ -25,23 +26,23 @@ public class Hoadon {
     public String getMahd() {
         return mahd;
     }
-    public String getNgayxuathd() {
+    public LocalDate getNgayxuathd() {
         return ngayxuathd;
     }
     public double getTongtien() {
         return tongtien;
     }
-    public Khachhang getmaKh() {
+    public Khachhang getMaKh() {
         return makh;
     }
-    public Nhanvien getmaNv() {
+    public Nhanvien getMaNv() {
         return manv;
     }
     // Ham set
     public void setMahd(String mahd) {
         this.mahd = mahd;
     }
-    public void setNgayxuathd(String ngayxuathd) {
+    public void setNgayxuathd(LocalDate ngayxuathd) {
         this.ngayxuathd = ngayxuathd;
     }
     public void setTongtien(double tongtien) {
@@ -62,8 +63,6 @@ public class Hoadon {
 
         System.out.print("Nhap ma hoa don: ");
         mahd = sc.nextLine();
-        System.out.print("Nhap ngay xuat hoa don: ");
-        ngayxuathd = sc.nextLine();
 
         System.out.print("Ma Khach Hang: ");
         makh.setMakh(sc.nextLine());
@@ -73,6 +72,8 @@ public class Hoadon {
         
         System.out.print("Tong tien: ");
         tongtien = sc.nextDouble();
+        // tổng tiền của chi tiết hóa đơn...
+        
     }
 
     // Ham xuat

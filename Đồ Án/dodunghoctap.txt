@@ -1,0 +1,11 @@
+10
+BV01,But bi,20,5000,cay,BV,TL,Muc dau,1
+BV02,But gel,15,7000,cay,BV,TL,Muc nuoc,1
+BV03,But chi,30,3000,cay,BV,TL,Chi go,2
+BV04,But may,10,12000,cay,BV,TS,Muc dau,1
+BV05,But muc,25,8000,cay,BV,TS,Muc nuoc,1
+GS01,Vo ke ngang,50,10000,quyen,GS,TS,5,A4
+GS02,Vo ke o,40,12000,quyen,GS,TS,4,A4
+GS03,Tap 200 trang,60,15000,quyen,GS,TL,4,A5
+GS04,So tay da,20,25000,quyen,GS,TL,5,A6
+GS05,Vo mon toan,35,11000,quyen,GS,TS,4,A4
