@@ -1,39 +1,49 @@
 import java.io.*;
-import java.util.*;
 
 public abstract class QLBH {
     // ---- CÁC DANH SÁCH DÙNG CHUNG ----
-    protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
+    // protected static Dsnhanvien dsNhanVien = new Dsnhanvien();
     protected static Dskhachhang dsKhachHang = new Dskhachhang();
-    protected static Dshoadon dsHoaDon = new Dshoadon();
+    protected static DsHoadon dsHoaDon = new DsHoadon();
     protected static Dsphieunhaphang dsPhieuNhapHang = new Dsphieunhaphang();
     protected static Dsdodunghoctap dsDoDungHocTap = new Dsdodunghoctap();
-    protected static Dsloaihang dsLoaiHang = new Dsloaihang();
-    protected static Dshangsanxuat dsHangSanXuat = new Dshangsanxuat();
-    protected static Dschitiethoadon dsChiTietHoaDon = new Dschitiethoadon();
-    protected static Dschitietphieunhap dsChiTietPhieuNhap = new Dschitietphieunhap();
-    protected static Dssanpham dsSanPham = new Dssanpham();
+    // protected static Dsloaihang dsLoaiHang = new Dsloaihang();
+    // protected static Dshangsanxuat dsHangSanXuat = new Dshangsanxuat();
+    protected static DsCTDH dsChiTietHoaDon = new DsCTDH();
+    protected static Dschitietphieunhaphang dsChiTietPhieuNhap = new Dschitietphieunhaphang();
     protected static Dsnhacungcap dsNhaCungCap = new Dsnhacungcap();
 
     // ---- HÀM ĐỌC TẤT CẢ FILE ----
-    public void docTatCaFile() {
+    public static void docTatCaFile() {
         try {
-            dsNhanVien.docFile("nhanvien.txt");
-            dsKhachHang.docFile("khachhang.txt");
-            dsHoaDon.docFile("hoadon.txt");
-            dsPhieuNhapHang.docFile("phieunhaphang.txt");
+            // dsNhanVien.docFile("nhanvien.txt");
+            dsKhachHang.docFile("DsKH.txt");
+            dsHoaDon.docFile("DsHD.txt");
+            dsPhieuNhapHang.docFile("Dsphieunhaphang.txt");
             dsDoDungHocTap.docFile("dodunghoctap.txt");
-            dsLoaiHang.docFile("loaihang.txt");
-            dsHangSanXuat.docFile("hangsanxuat.txt");
-            dsChiTietHoaDon.docFile("chitiethoadon.txt");
-            dsChiTietPhieuNhap.docFile("chitietphieunhap.txt");
-            dsSanPham.docFile("sanpham.txt");
-            dsNhaCungCap.docFile("nhacungcap.txt");
+            // dsLoaiHang.docFile("loaihang.txt");
+            // dsHangSanXuat.docFile("hangsanxuat.txt");
+            dsChiTietHoaDon.docFile("DsCTHD.txt");
+            dsChiTietPhieuNhap.docFile("Dschitietphieunhaphang.txt");
+            dsNhaCungCap.docFile("Dsnhacungcap.txt");
             System.out.println("Đọc tất cả dữ liệu thành công!");
         } catch (Exception e) {
             System.out.println("Lỗi đọc file: " + e.getMessage());
         }
     }
+
+    public void tongTien() {
+        for (PhieuNhapHang pnh : dsPhieuNhapHang.getDs()) {
+            double tongTien = 0;
+            for (chitietphieunhaphang ct : dsChiTietPhieuNhap.getDs()) {
+                if (ct.getMaPNH().equals(pnh.getMaPNH())) {
+                    tongTien += ct.getSoLuong() * ct.getDonGia();
+                }
+            }
+            pnh.setTongTien(tongTien);
+        }
+    }
+
     // ---- MENU CHÍNH ĐỂ RỖNG ----
     public abstract void menuChinh();
 }
