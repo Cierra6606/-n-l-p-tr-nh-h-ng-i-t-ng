@@ -1,22 +1,23 @@
 import java.util.Scanner;
 
 public class ChiTietDonHang {
-    private String mahd;     
-    private String msp;      
-    private int sl;          
-    private double dongia;   
-    private double tongtien; 
+    private String mahd;
+    private String msp;
+    private int sl;
+    private double dongia;
+    private double tongtien;
 
     Scanner sc = new Scanner(System.in);
 
-    public ChiTietDonHang() {}
+    public ChiTietDonHang() {
+    }
 
     public ChiTietDonHang(String mahd, String msp, int sl, double dongia) {
         this.mahd = mahd;
         this.msp = msp;
         this.sl = sl;
         this.dongia = dongia;
-        this.tongtien = sl * dongia; 
+        this.tongtien = sl * dongia;
     }
 
     public void nhap() {
@@ -35,12 +36,12 @@ public class ChiTietDonHang {
 
         tongtien = sl * dongia;
     }
-  
+
     public void xuat() {
-        System.out.println("Mã hóa đơn: " +mahd+ " Có chi tiết là: "+ "mã sản phẩm"+ msp +"số lượng"+ sl + "đơn giá"+dongia +"tổng tiền"+tongtien);
+        System.out.println("Mã hóa đơn: " + mahd + " Có chi tiết là: " + "mã sản phẩm" + msp + "số lượng" + sl
+                + "đơn giá" + dongia + "tổng tiền" + tongtien);
     }
-    
-    
+
     public String getMahd() {
         return mahd;
     }
