@@ -1,0 +1,5 @@
+4
+ncc1,TienLen,HaNoi,12345678
+ncc2,ThanhBinh,DaNang,987654321
+ncc3,PhuongNam,HoChiMinh,911223344
+ncc4,thanhcong,hcm,290848325
